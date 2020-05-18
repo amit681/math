@@ -1,0 +1,29 @@
+find the highest factor that is not divisible by k
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+long long int t;
+cin>>t;
+while(t--)
+{
+    long long int n,k;
+    cin>>n>>k;
+    long long int sm=0,extra=0,tmp;
+    tmp = n/k;
+    while(tmp)
+    {
+        sm += (n*(n+1))/2;
+        extra = k*(tmp *(tmp+1))/2;
+        sm-=extra;
+        n/=k;
+        tmp=n/k; 
+    } 
+    sm += (n*(n+1))/2;
+    extra = k*(tmp *(tmp+1))/2;
+    sm-=extra;
+    
+   cout<<sm<<endl;
+    
+}
+}
